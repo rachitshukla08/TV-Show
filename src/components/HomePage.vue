@@ -57,25 +57,25 @@ export default {
   },
   methods:{
     getAllShows(){
-      const response = getAllTVShows()
-      response.then(result=>{
-        this.shows = result.data 
-        //console.log(this.shows)
-        for(let j=0;j<this.genres.length;j++){
-            let shw = []
-        for(let i of this.shows){
-                if(i.genres.includes(this.genres[j])){
-                    shw.push(i);
-                }
-            }
-            const computedShows = {
-                name:this.genres[j],
-                shows:shw
-            }
-            this.filteredShows.push(computedShows)
+      return getAllTVShows().then(result=>{
+          console.log("test")
+          this.shows = result.data 
+          //console.log(this.shows)
+          for(let j=0;j<this.genres.length;j++){
+              let shw = []
+          for(let i of this.shows){
+                  if(i.genres.includes(this.genres[j])){
+                      shw.push(i);
+                  }
+              }
+              const computedShows = {
+                  name:this.genres[j],
+                  shows:shw
+              }
+              this.filteredShows.push(computedShows)
+          }
         }
-      }
-      )
+        ).catch((err)=>{console.log(err)})
     },
     searchAShow(){
       this.$router.push({

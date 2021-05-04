@@ -22,9 +22,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">42.11% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>8/19</span>
+                <span class='fraction'>15/20</span>
             </div>
         
             
@@ -36,16 +36,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">62.5% </span>
+                <span class="strong">66.67% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>5/8</span>
+                <span class='fraction'>6/9</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">44.44% </span>
+                <span class="strong">73.68% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>8/18</span>
+                <span class='fraction'>14/19</span>
             </div>
         
             
@@ -54,7 +54,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -296,23 +296,23 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -326,11 +326,11 @@
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -473,25 +473,25 @@ export default {
   },
   methods:{
     getAllShows(){
-      const response = getAllTVShows()
-<span class="fstat-no" title="function not covered" >      response.then(result=&gt;{</span>
-<span class="cstat-no" title="statement not covered" >        this.shows = result.data </span>
-        //console.log(this.shows)
-<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" >        for(let j=0;j&lt;this.genres.length;j++){</span></span>
-<span class="cstat-no" title="statement not covered" >            let shw = []</span>
-<span class="cstat-no" title="statement not covered" >        for(let i of this.shows){</span>
-<span class="cstat-no" title="statement not covered" >                if(i.genres.includes(this.genres[j])){</span>
-<span class="cstat-no" title="statement not covered" >                    shw.push(i);</span>
-                }
-            }
-<span class="cstat-no" title="statement not covered" >            const computedShows = {</span>
-                name:this.genres[j],
-                shows:shw
-            }
-<span class="cstat-no" title="statement not covered" >            this.filteredShows.push(computedShows)</span>
+      return getAllTVShows().then(result=&gt;{
+          console.log("test")
+          this.shows = result.data 
+          //console.log(this.shows)
+          for(let j=0;j&lt;this.genres.length;j++){
+              let shw = []
+          for(let i of this.shows){
+                  if(i.genres.includes(this.genres[j])){
+<span class="cstat-no" title="statement not covered" >                      shw.push(i);</span>
+                  }
+              }
+<span class="cstat-no" title="statement not covered" >              const computedShows = {</span>
+                  name:this.genres[j],
+                  shows:shw
+              }
+<span class="cstat-no" title="statement not covered" >              this.filteredShows.push(computedShows)</span>
+          }
         }
-      }
-      )
+        ).catch((err)=&gt;{console.log(err)})
     },
 <span class="fstat-no" title="function not covered" >    searchAShow(){</span>
 <span class="cstat-no" title="statement not covered" >      this.$router.push({</span>
@@ -505,11 +505,11 @@ export default {
       await getAllTVShows();
       //let allShows = this.shows
       //console.log(allShows.length)
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >      this.popularShows = this.shows.sort(function(showOne,showTwo){return showTwo.rating.average-showOne.rating.average}).splice(0,15)</span></span>
+<span class="fstat-no" title="function not covered" >      this.popularShows = this.shows.sort(function(showOne,showTwo){return showTwo.rating.average-showOne.rating.average}).splice(0,15)</span>
       //console.log(this.popularShows)
     }, 
-    redirectToPage(url){
-      window.open(url);
+<span class="fstat-no" title="function not covered" >    redirectToPage(url){</span>
+<span class="cstat-no" title="statement not covered" >      window.open(url);</span>
     }
   }
 }
@@ -600,7 +600,7 @@ img:hover{
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue May 04 2021 11:56:46 GMT+0530 (India Standard Time)
+                at Tue May 04 2021 14:32:04 GMT+0530 (India Standard Time)
             </div>
         </div>
         <script src="..\..\prettify.js"></script>

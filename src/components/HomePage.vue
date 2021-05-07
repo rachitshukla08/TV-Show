@@ -57,7 +57,7 @@ export default {
   },
   methods:{
     getAllShows(){
-      return getAllTVShows().then(result=>{
+      getAllTVShows().then(result=>{
         this.shows = result.data 
         for(let j=0;j<this.genres.length;j++){
           let showsInGenre = []
@@ -73,7 +73,7 @@ export default {
           this.filteredShows.push(computedShows)
         }
       }
-      )
+      ).catch((err)=>console.log(err))
     },
     searchAShow(){
       this.$router.push({

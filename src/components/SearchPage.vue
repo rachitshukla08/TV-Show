@@ -34,7 +34,7 @@ export default {
         if(this.searchedShow.length==0){
             this.checkIfShowExists=false
           }
-        })
+        }).catch((err)=>console.log(err))
       },
       async filterTVShows(){
         await searchTVShow(this.searchShowName);

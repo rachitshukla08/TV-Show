@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1620325540302" clover="3.2.0">
-  <project timestamp="1620325540302" name="All files">
-    <metrics statements="38" coveredstatements="35" conditionals="4" coveredconditionals="3" methods="19" coveredmethods="16" elements="61" coveredelements="54" complexity="0" loc="38" ncloc="38" packages="4" files="6" classes="6"/>
+<coverage generated="1620386262778" clover="3.2.0">
+  <project timestamp="1620386262778" name="All files">
+    <metrics statements="40" coveredstatements="35" conditionals="4" coveredconditionals="3" methods="21" coveredmethods="16" elements="65" coveredelements="54" complexity="0" loc="40" ncloc="40" packages="4" files="6" classes="6"/>
     <package name="services">
       <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
       <file name="TvShowService.js" path="D:\VUE\tv-show\services\TvShowService.js">
@@ -19,9 +19,9 @@
       </file>
     </package>
     <package name="src.components">
-      <metrics statements="31" coveredstatements="28" conditionals="4" coveredconditionals="3" methods="17" coveredmethods="14"/>
+      <metrics statements="33" coveredstatements="28" conditionals="4" coveredconditionals="3" methods="19" coveredmethods="14"/>
       <file name="HomePage.vue" path="D:\VUE\tv-show\src\components\HomePage.vue">
-        <metrics statements="18" coveredstatements="16" conditionals="2" coveredconditionals="2" methods="9" coveredmethods="6"/>
+        <metrics statements="19" coveredstatements="16" conditionals="2" coveredconditionals="2" methods="10" coveredmethods="6"/>
         <line num="39" count="1" type="stmt"/>
         <line num="44" count="7" type="stmt"/>
         <line num="55" count="7" type="stmt"/>
@@ -35,6 +35,7 @@
         <line num="66" count="24" type="stmt"/>
         <line num="69" count="128" type="stmt"/>
         <line num="73" count="128" type="stmt"/>
+        <line num="75" count="0" type="stmt"/>
         <line num="79" count="0" type="stmt"/>
         <line num="87" count="7" type="stmt"/>
         <line num="88" count="7" type="stmt"/>
@@ -42,7 +43,7 @@
         <line num="94" count="0" type="stmt"/>
       </file>
       <file name="SearchPage.vue" path="D:\VUE\tv-show\src\components\SearchPage.vue">
-        <metrics statements="12" coveredstatements="11" conditionals="2" coveredconditionals="1" methods="7" coveredmethods="7"/>
+        <metrics statements="13" coveredstatements="11" conditionals="2" coveredconditionals="1" methods="8" coveredmethods="7"/>
         <line num="17" count="2" type="stmt"/>
         <line num="21" count="4" type="stmt"/>
         <line num="31" count="5" type="stmt"/>
@@ -50,6 +51,7 @@
         <line num="33" count="5" type="stmt"/>
         <line num="34" count="5" type="cond" truecount="1" falsecount="1"/>
         <line num="35" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
         <line num="40" count="4" type="stmt"/>
         <line num="41" count="8" type="stmt"/>
         <line num="45" count="1" type="stmt"/>

@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: #041747">
     <a class="navbar-brand" href="#">
       <router-link class="nav-link" :to="{name:'HomePage'}">
-        <img src="../../public/tv - white.svg"> Home
+        <img src="../../public/tv-white.svg"> Home
         </router-link>
     </a>
   </nav>

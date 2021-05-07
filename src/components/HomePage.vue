@@ -11,7 +11,7 @@
         <div class = "scroll">
           <div v-for="show in popularShows" :key="show.id">
             <div class="card">
-              <img class="show-img" :src="show.image.medium" @click="redirectToPage(show.url)">
+              <img class="show-img" :src="show.image.medium" @click="redirectToShowDetailsPage(show)">
               <p class="show-name" @click="redirectToPage(show.url)">{{show.name}}</p>
               <p class="show-rating">Rating: {{show.rating.average}}<span class="star"> &starf; </span></p>
             </div>
@@ -24,7 +24,7 @@
         <div class = "scroll">
           <div v-for="show in showsFiltered.shows" :key="show.id">
             <div class="card">
-              <img class="show-img" :src="show.image.medium" @click="redirectToPage(show.url)">
+              <img class="show-img" :src="show.image.medium" @click="redirectToShowDetailsPage(show)">
               <p class="show-name" @click="redirectToPage(show.url)">{{show.name}}</p>
               <p class="show-rating">Rating: {{show.rating.average}}<span class="star"> &starf; </span></p>
             </div>
@@ -43,9 +43,9 @@ export default {
   data(){
     return{
       shows: [],
-      genres : ["Anime","Action","Adventure","Comedy","Crime","Drama","Fantasy",
+      genres : ["Action","Anime","Adventure","Comedy","Crime","Drama","Fantasy",
               "Espionage","Horror","Mystery","Romance","Science-Fiction"
-              ,"Supernatural","Thriller"],
+              ,"Supernatural","Thriller","War","Western"],
       filteredShows: [],
       popularShows: [],
       searchedShow : "",
@@ -58,24 +58,22 @@ export default {
   methods:{
     getAllShows(){
       return getAllTVShows().then(result=>{
-          console.log("test")
-          this.shows = result.data 
-          //console.log(this.shows)
-          for(let j=0;j<this.genres.length;j++){
-              let shw = []
+        this.shows = result.data 
+        for(let j=0;j<this.genres.length;j++){
+          let showsInGenre = []
           for(let i of this.shows){
-                  if(i.genres.includes(this.genres[j])){
-                      shw.push(i);
-                  }
+            if(i.genres.includes(this.genres[j])){
+                showsInGenre.push(i);
               }
-              const computedShows = {
-                  name:this.genres[j],
-                  shows:shw
-              }
-              this.filteredShows.push(computedShows)
-          }
+            }
+            const computedShows = {
+              name:this.genres[j],
+              shows:showsInGenre
+            }
+          this.filteredShows.push(computedShows)
         }
-        ).catch((err)=>{console.log(err)})
+      }
+      )
     },
     searchAShow(){
       this.$router.push({
@@ -83,23 +81,27 @@ export default {
           params:{
             searchShowName:this.searchedShow
           }
-        }); 
+      }); 
     },
     async getPopularShows(){
       await getAllTVShows();
-      //let allShows = this.shows
-      //console.log(allShows.length)
       this.popularShows = this.shows.sort(function(showOne,showTwo){return showTwo.rating.average-showOne.rating.average}).splice(0,15)
-      //console.log(this.popularShows)
     }, 
     redirectToPage(url){
       window.open(url);
+    },
+    redirectToShowDetailsPage(showDetails){
+       this.$router.push({
+          name:'ShowDetails',
+          params:{
+            show:showDetails
+          }
+      }); 
     }
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
 .search-element{
@@ -117,7 +119,7 @@ input{
   height: 50px;
 }
 .star{
-  color:yellow;
+  color:#ffbf00;
 }
 .scroll{
     display: flex;
@@ -155,6 +157,7 @@ p{
 }
 .show-img{
   margin: 15px;
+  transition: 0.3s;
 }
 .genre-list{
   margin-top: 10px;
@@ -163,17 +166,27 @@ p{
 .genre-text{
   text-align: left;
   margin: 15px;
-  font-family: monospace;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
   font-size: 30px;
 }
 .row{
   margin-bottom: 40px;
 }
-img:hover{
+.show-img:hover{
   cursor: pointer;
   transform: scale(1.05);
+  border-radius: 5%;
+}
+.show-name{
+  font-weight: bold;
 }
 .show-name:hover{
   cursor: pointer;
+  color: blue;
+  transition: 0.3s;
+}
+@media only screen and (max-width: 350px){
+  
 }
 </style>
